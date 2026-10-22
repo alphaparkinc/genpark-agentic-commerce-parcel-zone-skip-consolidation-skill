@@ -1,0 +1,62 @@
+{
+  "name": "genpark-agentic-commerce-parcel-zone-skip-consolidation-skill",
+  "version": "1.0.0",
+  "title": "Parcel Zone-Skip Consolidation & Linehaul Injection Optimizer Skill",
+  "description": "Parcel zone-skipping economics, linehaul truckload cost vs destination injection postal sort savings, and transit time SLA trade-off. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "zone-skipping",
+    "parcel-logistics",
+    "linehaul-injection",
+    "shipping-optimization",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "evaluate_zone_skip_economic_arbitrage",
+      "description": "Compare direct origin-to-destination parcel shipping vs linehaul consolidation truckload to destination hub.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "total_packages": {
+            "type": "integer"
+          },
+          "direct_average_package_rate_usd": {
+            "type": "number"
+          },
+          "linehaul_truckload_cost_usd": {
+            "type": "number"
+          },
+          "destination_injection_rate_usd": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "total_packages",
+          "direct_average_package_rate_usd",
+          "linehaul_truckload_cost_usd",
+          "destination_injection_rate_usd"
+        ]
+      }
+    },
+    {
+      "name": "identify_optimal_destination_injection_hub",
+      "description": "Select best regional USPS NDC/SCF or FedEx SmartPost hub based on volume centroid.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "destination_zip_distribution": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "destination_zip_distribution"
+        ]
+      }
+    }
+  ]
+}
